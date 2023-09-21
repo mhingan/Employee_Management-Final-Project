@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Information</title>
+  <!-- Add Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Add your custom CSS styles here -->
+  <style>
+    /* Background image and general styles */
+    body {
+      background-image: url('https://www.fundoodata.com/learning-center/wp-content/uploads/background-companies-4.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-position: center center;
+      color: #fff;
+      font-family: Arial, sans-serif;
+      overflow: hidden; /* Hide scrollbars */
+    }
+
+    /* Container style */
+    .container {
+      background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
+      padding: 20px;
+      border-radius: 10px;
+    }
+
+    /* Header style */
+    h1 {
+      color: #fff;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    /* Definition List style */
+    dl {
+      text-align: left;
+    }
+
+    dt {
+      font-weight: bold;
+    }
+
+    /* Executives list style */
+    ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin-bottom: 10px;
+    }
+
+    /* Footer style */
+    footer {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 10px 0;
+      text-align: center;
+      position: fixed; /* Fix the footer to the bottom */
+      bottom: 0;
+      width: 100%;
+      color: #fff; /* Text color for better visibility */
+    }
+
+    /* Back button style */
+    .back-button-general {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+<button onclick="window.location.href='/dashboard'" class="back-button-general">Back</button>
+
+<div class="container my-5">
+  <h1>Company Information</h1>
+  <dl class="row">
+    <dt class="col-sm-3">Company Name:</dt>
+    <dd class="col-sm-9">Your Company Name</dd>
+
+    <dt class="col-sm-3">CIF (Tax ID Number):</dt>
+    <dd class="col-sm-9">123456789</dd>
+
+    <dt class="col-sm-3">Company Registration Number:</dt>
+    <dd class="col-sm-9">ABC12345</dd>
+
+    <dt class="col-sm-3">Address:</dt>
+    <dd class="col-sm-9">123 Main Street, City, Country</dd>
+
+    <dt class="col-sm-3">Phone:</dt>
+    <dd class="col-sm-9">(123) 456-7890</dd>
+
+    <dt class="col-sm-3">Email:</dt>
+    <dd class="col-sm-9">info@company.com</dd>
+  </dl>
+</div>
+
+<div class="container my-5">
+  <h2>Company Executives</h2>
+  <ul>
+    <li><strong>CEO:</strong> John Doe</li>
+    <li><strong>CTO:</strong> Jane Smith</li>
+    <li><strong>CFO:</strong> David Johnson</li>
+    <!-- Add more executives as needed -->
+  </ul>
+</div>
+<li>Send us your CV at: <strong>recruting@my-company.com</strong></li>
+
+<footer class="text-center py-3">
+  <p>&copy; 2023 Mihaita Hingan - Proiect Final - Scoala Informala de IT.<br/> All rights reserved.</p>
+</footer>
+
+<!-- Add Bootstrap JS (optional) -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

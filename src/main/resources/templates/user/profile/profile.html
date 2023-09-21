@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <title>Title</title>
+    <style>
+        /* Style for the profile photo */
+        .profile-photo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto;
+            margin-top: 20px;
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Style for the cards */
+        .custom-card {
+            margin-top: 20px;
+        }
+
+        /* Background image */
+        body {
+            background-image: url('https://img.freepik.com/free-photo/abstract-grunge-decorative-relief-navy-blue-stucco-wall-texture-wide-angle-rough-colored-background_1258-28311.jpg?w=2000');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            background-position: center center;
+            overflow: hidden; /* Hide scrollbars */
+        }
+        .back-button-general {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<button onclick="window.location.href='/dashboard'" class="back-button-general">Back</button>
+
+<div class="container text-center">
+    <br/><br/><br/>
+
+    <div class="profile-photo">
+        <img src="https://cdn2.iconfinder.com/data/icons/colored-simple-circle-volume-01/128/circle-flat-general-51851bd79-512.png" alt="Profile Photo">
+    </div>
+    <br/><br/><br/><br/>
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card custom-card">
+                <div class="card-body">
+                    <h1 class="card-title">🔑</h1>
+                    <p class="card-text">If it's the first time that you log in after your account was created. Please
+                        change your password..</p>
+                    <a th:href="@{/my_profile/change_password/{id}(id=${user.id})}" class="btn btn-primary">Change Password</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card custom-card">
+                <div class="card-body">
+                    <h1 class="card-title">👤</h1>
+                    <p class="card-text">Here you can update / change some of your information.<br/>If needed, <a
+                            href="">contact support</a> .</p>
+                    <a href="/my_profile/update_info" class="btn btn-primary">Update General Info</a>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card custom-card">
+                <div class="card-body">
+                    <h1 class="card-title">🏖️</h1>
+                    <p class="card-text">Easy, busy.<br/>Request days off from here.<br/>Just a few clicks and you are
+                        done.</p>
+                    <a href="/my_profile/request_days_off" class="btn btn-primary">Request Day Off</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

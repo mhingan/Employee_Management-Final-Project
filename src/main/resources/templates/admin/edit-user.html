@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Edit User</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<style>
+    body {
+        background-color: #B9D9EB;
+    }
+    h5 {
+        color: #000000;
+        padding: 10px;
+        margin-top: 0;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .section {
+        background-color: white;
+        border: 1px solid #ccc;
+        padding: 15px;
+        border-radius: 5px;
+        margin-bottom: 20px;
+    }
+    .back-button-general {
+        background-color: #007bff;
+        color: #fff;
+        border: none;
+        padding: 10px 20px;
+        cursor: pointer;
+    }
+</style>
+<body>
+<button onclick="window.location.href='/admin/employees'" class="back-button-general">Back</button>
+<div class="container mt-4">
+    <h2>Edit existing employee: <span class="employee-value" th:text="${user.id}"></span></h2>
+
+    <form th:action="@{/admin/employees/edit/{id}(id=${user.id})}" method="post" th:object="${user}">
+        <input type="hidden" name="id" th:value="${user.id}" />
+        <input type="hidden" name="_method" value="PATCH">
+        <br/>
+        <div class="section">
+            <h5>Identification:</h5>
+            <div class="form-group">
+                <label for="role">Role:</label>
+                <input type="text" id="role" name="role" class="form-control" th:field="${user.role}">
+            </div>
+
+            <div class="form-group">
+                <label for="cnp">CNP:</label>
+                <input type="text" id="cnp" name="cnp" class="form-control" th:field="${user.cnp}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="first_name">First Name:</label>
+                <input type="text" id="first_name" name="first_name" class="form-control" th:field="${user.first_name}">
+            </div>
+
+            <div class="form-group">
+                <label for="last_name">Last Name:</label>
+                <input type="text" id="last_name" name="last_name" class="form-control" th:field="${user.last_name}">
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" id="email" name="email" class="form-control" th:field="${user.email}">
+            </div>
+        </div>
+
+        <div class="section">
+            <h5>Personal:</h5>
+
+            <div class="form-group">
+                <label for="image_link">Profile image:</label>
+                <input type="text" id="image_link" name="image_link" class="form-control" th:field="${user.image_link}">
+            </div>
+
+            <div class="form-group">
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" name="gender" class="form-control" th:field="${user.gender}" readonly>
+            </div>
+
+            <div class="form-group">
+                <label for="address">Address:</label>
+                <input type="text" id="address" name="address" class="form-control" th:field="${user.address}">
+            </div>
+
+            <div class="form-group">
+                <label for="phone_number">Phone:</label>
+                <input type="text" id="phone_number" name="phone_number" class="form-control"
+                       th:field="${user.phone_number}">
+            </div>
+        </div>
+
+        <div class="section">
+            <h5>Study:</h5>
+
+            <div class="form-group">
+                <label for="degree1">Degree:</label>
+                <input type="text" id="degree1" name="degree1" class="form-control" th:field="${user.degree1}">
+            </div>
+
+            <div class="form-group">
+                <label for="degree2">Degree:</label>
+                <input type="text" id="degree2" name="degree2" class="form-control" th:field="${user.degree2}">
+            </div>
+
+            <div class="form-group">
+                <label for="degree3">Degree:</label>
+                <input type="text" id="degree3" name="degree3" class="form-control" th:field="${user.degree3}">
+            </div>
+
+            <div class="form-group">
+                <label for="degree4">Degree:</label>
+                <input type="text" id="degree4" name="degree4" class="form-control" th:field="${user.degree4}">
+            </div>
+        </div>
+
+        <div class="section">
+            <h5>Employee internal information:</h5>
+
+            <div class="form-group">
+                <label for="department">Department:</label>
+                <input type="text" id="department" name="department" class="form-control" th:field="${user.department}">
+            </div>
+
+            <div class="form-group">
+                <label for="job_title">Job Title:</label>
+                <input type="text" id="job_title" name="job_title" class="form-control" th:field="${user.job_title}">
+            </div>
+
+            <div class="form-group">
+                <label for="hiring_date">Hiring date::</label>
+                <input type="text" id="hiring_date" name="hiring_date" class="form-control"
+                       th:field="${user.hiring_date}">
+            </div>
+
+            <div class="form-group">
+                <label for="contract">Contract Type:</label>
+                <input type="text" id="contract" name="contract" class="form-control" th:field="${user.contract}">
+            </div>
+
+            <div class="form-group">
+                <label for="salary">Salary:</label>
+                <input type="text" id="salary" name="salary" class="form-control" th:field="${user.salary}">
+            </div>
+
+            <div class="form-group">
+                <label for="holiday_day">Holiday (no. of days):</label>
+                <input type="text" id="holiday_day" name="holiday_day" class="form-control"
+                       th:field="${user.holiday_day}">
+            </div>
+        </div>
+
+        <div class="section">
+            <h5>Devices:</h5>
+            <div class="form-group">
+                <label for="devices">Devices:</label>
+                <textarea id="devices" name="devices" class="form-control" th:field="${user.devices}"></textarea>
+            </div>
+        </div>
+
+
+        <button type="submit" class="btn btn-success">Save Changes</button>
+    </form>
+
+    <div class="alert alert-danger mt-4">
+        <h3 class="mb-3">Danger Zone</h3>
+        <p>This action is irreversible. Deleting a user will permanently remove all data associated with this.</p>
+        <a th:href="@{/admin/employees/delete/{id}(id=${user.id})}" class="btn btn-danger">Delete User</a>
+    </div>
+</div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

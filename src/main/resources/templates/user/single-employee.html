@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:src="${employee.first_name + employee.last_name}"></title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-image: url('https://png.pngtree.com/background/20210709/original/pngtree-hd-abstract-tech-background-picture-image_578452.jpg');
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Hide scrollbars */
+        }
+
+        .back-button-general {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .card {
+            width: 100%;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img-top {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .card-title {
+            font-size: 28px;
+            text-align: center;
+            color: #007bff;
+        }
+
+        .badge-container {
+            text-align: center;
+        }
+
+        .badge {
+            margin-right: 10px;
+            margin-bottom: 5px;
+            display: block;
+            padding: 5px;
+        }
+
+        .badge-primary {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .badge-success {
+            background-color: #28a745;
+            color: #fff;
+        }
+
+        .badge-warning {
+            background-color: #ffc107;
+            color: #333;
+        }
+
+        .badge-danger {
+            background-color: #dc3545;
+            color: #fff;
+        }
+
+        .badge-info {
+            background-color: #17a2b8;
+            color: #fff;
+        }
+
+        .badge-secondary {
+            background-color: #6c757d;
+            color: #fff;
+        }
+        .centered-image {
+            width: 350px;
+            height: 350px;
+            margin: 0 auto;
+            display: block;
+            object-fit: cover;
+        }
+
+    </style>
+</head>
+<body>
+<button onclick="window.location.href='/employees'" class="back-button-general">Back</button>
+<h2 th:text="${employee.first_name + ' ' + employee.last_name}"></h2>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body text-center">
+                    <img th:if="${employee.image_link}" th:src="${employee.image_link}" alt="Employee Image" class="card-img-top centered-image">
+                    <h5 class="card-title" th:text="${employee.first_name + ' ' + employee.last_name}"></h5>
+                    <div class="badge-container">
+                        <span class="badge badge-danger"><h5>Job Title:</h5> <span th:text="${employee.job_title}"></span></span>
+                        <span class="badge badge-warning"><h5>Department:</h5><span th:text="${employee.department}"></span></span>
+                        <span class="badge badge-success">Gender: <span th:text="${employee.gender}"></span></span>
+                        <span class="badge badge-primary">Email: <span th:text="${employee.email}"></span></span>
+                        <span class="badge badge-secondary">Phone: <span th:text="${employee.phone_number}"></span></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

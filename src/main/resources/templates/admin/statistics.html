@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Statistics</title>
+    <!-- Include Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Additional CSS for custom styling -->
+    <style>
+        /* Add custom styles here */
+        .container {
+            margin-top: 20px;
+        }
+
+        .table-container {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .table {
+            width: 48%; /* Adjust the width as needed */
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+
+        h2 {
+            color: #555;
+        }
+
+        table {
+            width: 100%;
+            max-width: 100%;
+            margin-bottom: 1rem;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            padding: 0.75rem;
+            vertical-align: top;
+            border-top: 1px solid #dee2e6;
+        }
+
+        th {
+            background-color: #f5f5f5;
+        }
+
+        tbody tr:nth-child(odd) {
+            background-color: #f2f2f2;
+        }
+
+        .back-button-general {
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<button onclick="window.location.href='/admin/panel'" class="back-button-general">Back</button>
+<h1>Statistics</h1>
+<h2>Gender</h2>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Entity</th>
+    <th>Info</th>
+    <th>Date</th>
+    <th>Statistics(numbers)</th>
+  </tr>
+  </thead>
+  <tr>
+    <td>MEN</td>
+    <td>Total active employees with gender=male</td>
+    <td><span th:text="${date}"></span></td>
+    <td><span th:text="${mUsers}"></span></td>
+  </tr>
+  <tr>
+    <td>WOMEN</td>
+    <td>Total active employees with gender=female</td>
+    <td><span th:text="${date}"></span></td>
+    <td><span th:text="${fUsers}"></span></td>
+  </tr>
+</table>
+
+<h2>Contract Type</h2>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Entity</th>
+    <th>Info</th>
+    <th>Date</th>
+    <th>Statistics(numbers)</th>
+  </tr>
+  </thead>
+  <tr>
+    <td>Full-Time</td>
+    <td>Total active employees with contract_type=full-time</td>
+    <td><span th:text="${date}"></span></td>
+    <td><span th:text="${fullTime}"></span></td>
+  </tr>
+  <tr>
+    <td>Part-Time</td>
+    <td>Total active employees with contract_type=part-time</td>
+    <td><span th:text="${date}"></span></td>
+    <td><span th:text="${partTime}"></span></td>
+  </tr>
+  <tr>
+    <td>Internship</td>
+    <td>Total active employees with contract_type=internship</td>
+    <td><span th:text="${date}"></span></td>
+    <td><span th:text="${intern}"></span></td>
+  </tr>
+</table>
+
+
+
+<h2>Department</h2>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Entity</th>
+    <th>Info</th>
+    <th>Date</th>
+    <th>Statistics(numbers)</th>
+  </tr>
+  </thead>
+  <tr>
+    <td>Management</td>
+    <td>Total active employees with department=management</td>
+    <td><span th:text="${date}"></span></td>
+    <td><span th:text="${management}"></span></td>
+  </tr>
+  <tr>
+    <td>IT</td>
+    <td>Total active employees with department=IT</td>
+    <td><span th:text="${date}"></span></td>
+    <td><span th:text="${it}"></span></td>
+  </tr>
+  <tr>
+    <td>Development</td>
+    <td>Total active employees with department=development</td>
+    <td><span th:text="${date}"></span></td>
+    <td><span th:text="${development}"></span></td>
+  </tr>
+  <tr>
+    <td>HR</td>
+    <td>Total active employees with department=HR</td>
+    <td><span th:text="${date}"></span></td>
+    <td><span th:text="${hr}"></span></td>
+  </tr>
+  <tr>
+    <td>Finance</td>
+    <td>Total active employees with department=finance</td>
+    <td><span th:text="${date}"></span></td>
+    <td><span th:text="${finance}"></span></td>
+  </tr>
+  <tr>
+    <td>Marketing</td>
+    <td>Total active employees with department=marketing</td>
+    <td><span th:text="${date}"></span></td>
+    <td><span th:text="${marketing}"></span></td>
+  </tr>
+</table>
+
+<h2>Total</h2>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Entity</th>
+    <th>Info</th>
+    <th>Date</th>
+    <th>Statistics(numbers)</th>
+  </tr>
+  </thead>
+  <tr>
+    <td>TOTAL</td>
+    <td>Total active employees in company: no filter.</td>
+    <td><span th:text="${date}"></span></td>
+    <td><span th:text="${totalActiveUsers}"></span></td>
+  </tr>
+</table>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.2/dist/js/bootstrap.min.js"></script>
+</body>
+</html>

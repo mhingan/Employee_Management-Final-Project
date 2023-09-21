@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <style>
+    body {
+      background-color: #95A5A6;
+      overflow: hidden; /* Hide scrollbars */
+    }
+
+    .btn-logout {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin-right: 10px;
+    }
+    .btn-body {
+      font-size: 18px;
+      padding: 10px 20px;
+      margin-right: 10px;
+      background-color: #B9770E;
+      border-color: #B9770E;
+    }
+
+    .navbar {
+      background-color: #0B5345;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+      color: #FFFFFF;
+    }
+
+    .navbar-light .navbar-nav .nav-link {
+      color: #FFA500;
+    }
+
+    /* Custom styles for cards */
+    .card-custom {
+      border: none;
+      border-radius: 15px;
+      background: linear-gradient(145deg, #6EC1E4, #0B5345);
+      box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer {
+      background-color: #0B5345;
+      color: #FFFFFF;
+      padding: 20px 0;
+      text-align: center;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+
+  </style>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="/dashboard">#Home</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+          aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="/my_profile"><button class="btn btn-body">Profile</button></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="http://localhost:8080/login?logout=true"><button class="btn btn-danger btn-logout">Logout</button></a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-5">
+  <div class="row">
+    <!-- First Card -->
+    <div class="col-md-4 mb-4">
+      <div class="card card-custom">
+        <div class="card-body text-center">
+          <img src="https://cdn-icons-png.flaticon.com/128/4343/4343430.png" alt="Holiday Image" class="img-fluid">
+          <h4>Request Holiday</h4>
+          <a href="/my_profile/request_days_off" class="btn btn-body">Go to requests</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Second Card -->
+    <div class="col-md-4 mb-4">
+      <div class="card card-custom">
+        <div class="card-body text-center">
+          <img src="https://w7.pngwing.com/pngs/144/173/png-transparent-person-icon-illustration-computer-icons-icon-design-symbol-person-symbol-miscellaneous-monochrome-sticker.png" alt="Colleagues Image" class="img-fluid">
+          <h4>View Colleagues</h4>
+          <a href="/employees" class="btn btn-body">View colleagues</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Third Card -->
+    <div class="col-md-4 mb-4">
+      <div class="card card-custom">
+        <div class="card-body text-center">
+          <img src="https://www.pngitem.com/pimgs/m/226-2261747_company-name-icon-png-transparent-png.png" alt="Company Image" class="img-fluid">
+          <h4>View Company</h4>
+          <a href="/company" class="btn btn-body">View company</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="footer">
+  &copy; 2023 Mihaita Hingan - Curs Java - Scoala Informala de IT
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.0/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Delete USER</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    .delete-container {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .delete-warning {
+      color: #d9534f;
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+
+    .delete-button {
+      background-color: #d9534f;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .delete-button:hover {
+      background-color: #c9302c;
+    }
+
+    .back-button-general {
+      background-color: #333;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 3px;
+      cursor: pointer;
+    }
+
+    .back-button-general:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+<button onclick="window.location.href='/admin/panel'" class="back-button-general">Back</button>
+<div class="delete-container">
+  <p class="delete-warning">This action is irreversible. Deleting an employee will permanently remove their data.</p>
+  <p class="delete-warning">Are you sure that you want to delete this employee? </p>
+
+  <form id="delete-form" th:action="@{/admin/employees/delete/{id}(id=${user.id})}" method="post">
+    <input type="hidden" name="_method" value="DELETE">
+    <input type="submit" class="delete-button" value="Delete employee">
+  </form>
+
+</div>
+</body>
+</html>
