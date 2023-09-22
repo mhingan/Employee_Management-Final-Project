@@ -56,7 +56,6 @@ class DayOffRequestServiceTest {
 
         int requestId = 1;
 
-        /
         DayOffRequest mockRequest = new DayOffRequest();
         when(dayOffRequestRepository.findById(requestId)).thenReturn(Optional.of(mockRequest));
 
