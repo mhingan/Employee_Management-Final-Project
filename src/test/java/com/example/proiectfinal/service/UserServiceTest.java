@@ -47,8 +47,6 @@ public class UserServiceTest {
 
     @Test
     public void testFindAll() {
-        // Test: Find all users
-        // Arrange
         List<User> userList = new ArrayList<>();
         when(userRepository.findAll()).thenReturn(userList);
 
@@ -60,8 +58,7 @@ public class UserServiceTest {
 
     @Test
     public void testFindById() {
-        // Test: Find a user by id
-        // Arrange
+
         int userId = 1;
         User user = new User();
         when(userRepository.findById(userId)).thenReturn(Optional.of(user));
@@ -74,8 +71,6 @@ public class UserServiceTest {
 
     @Test
     public void testUpdate() {
-        // Test: Update user
-        // Arrange
         User user = new User();
         userService.update(user);
 
@@ -85,8 +80,6 @@ public class UserServiceTest {
 
     @Test
     public void testFindByLastName() {
-        // Test: Find all users with a specific last name
-        // Arrange
         String selectedName = "Smith";
         User user1 = new User();
         user1.setLast_name("Smith");
@@ -106,8 +99,6 @@ public class UserServiceTest {
 
     @Test
     public void testCreateUserWithRoleProvided() {
-        // Test: Create user with role specified
-        // Arrange
         User user = new User();
         user.setRole("ADMIN"); // Role is provided
 
@@ -120,23 +111,19 @@ public class UserServiceTest {
 
     @Test
     public void testCreateUserWithRoleEmpty() {
-        // Test: Create user without specifying the role
-        // Arrange
         User user = new User();
-        user.setRole(""); // Role is empty
+        user.setRole("");
 
         userService.createUser(user);
 
         verify(userRepository, times(1)).save(user);
-        assertEquals("USER", user.getRole()); // Role should be set to "USER"
+        assertEquals("USER", user.getRole());
         System.out.println("Test: Create user without Role: OK");
     }
 
 
     @Test
     public void testDeleteUser() {
-        // Test: Delete user
-        // Arrange
         int userId = 1;
         User user = new User();
         when(userRepository.findById(userId)).thenReturn(Optional.of(user));
@@ -150,8 +137,6 @@ public class UserServiceTest {
 
     @Test
     public void testDeleteUserNotFound() {
-        // Test: Delete user not found
-        // Arrange
         int userId = 1;
         when(userRepository.findById(userId)).thenReturn(Optional.empty());
 
@@ -161,8 +146,7 @@ public class UserServiceTest {
 
     @Test
     public void testFindAllActiveUsers() {
-        // Test: Find all active users, with role = USER
-        // Arrange
+
         List<User> userList = new ArrayList<>();
         User user = new User();
         user.setRole("USER");
@@ -177,8 +161,6 @@ public class UserServiceTest {
 
     @Test
     public void testFindCurrentUser() {
-        // Test: Find the current user
-        // Arrange
         String currentPrincipalName = "user@example.com";
         when(authentication.getName()).thenReturn(currentPrincipalName);
         SecurityContextHolder.getContext().setAuthentication(authentication);
@@ -194,17 +176,16 @@ public class UserServiceTest {
 
     @Test
     public void testRequestHolidayWithEnoughDays() {
-        // Test: Requesting holiday with enough available days
-        // Arrange
+
         User user = new User();
         user.setHoliday_day(10);
         LocalDate startDate = LocalDate.of(2023, 9, 1);
         LocalDate endDate = LocalDate.of(2023, 9, 5);
 
-        //Act and Assert
+
         userService.requestHoliday(user, startDate, endDate);
 
-        //Verify
+
         verify(userRepository, times(1)).save(user);
         assertEquals(5, user.getHoliday_day());
         System.out.println("Test: Request holiday: OK");
@@ -212,17 +193,16 @@ public class UserServiceTest {
 
     @Test
     public void testRequestHolidayWithNotEnoughDays() {
-        // Test: Requesting holiday with not enough available days
-        // Arrange
+
         User user = new User();
-        user.setHoliday_day(3); // Set available holiday days
+        user.setHoliday_day(3);
         LocalDate startDate = LocalDate.of(2023, 9, 1);
         LocalDate endDate = LocalDate.of(2023, 9, 5);
 
-        // Act and Assert
+
         assertThrows(CustomValidationException.class, () -> userService.requestHoliday(user, startDate, endDate));
 
-        // Verify that userRepository.save(user) was not called
+
         verify(userRepository, never()).save(user);
         System.out.println("Test: Request Holiday with not enough days: OK");
     }

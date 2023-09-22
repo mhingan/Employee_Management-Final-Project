@@ -34,16 +34,21 @@ public class User {
     private String email;
     private String password;
     private String hashedPassword;
+
     //personal
     private String image_link;
     private String gender;
     private String address;
     private String phone_number;
+
+    //todo - as object
+    //todo - remove hashedpassword
     //study
     private String degree1;
     private String degree2;
     private String degree3;
     private String degree4;
+
     //job
     private String department;
     private String job_title;
@@ -51,6 +56,7 @@ public class User {
     private String contract;
     private int salary;
     private int holiday_day;
+
     //devices provided by employee
     private List<String> devices;
 

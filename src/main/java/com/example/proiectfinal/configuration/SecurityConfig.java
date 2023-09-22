@@ -4,7 +4,6 @@
  * This class defines the security configuration for the application, including security filter chains, authorization
  * rules, and password encoding.
  */
-
 package com.example.proiectfinal.configuration;
 
 import org.springframework.context.annotation.Bean;
@@ -20,6 +19,7 @@ import org.springframework.security.web.SecurityFilterChain;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    //todo - only in one place
     /**
      * Defines the security filter chain with authorization rules.
      *

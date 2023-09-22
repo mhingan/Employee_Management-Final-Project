@@ -30,7 +30,6 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        // Map user roles to GrantedAuthority objects
         return Stream.of(user.getRole())
                 .map(SimpleGrantedAuthority::new)
                 .toList();
@@ -48,25 +47,21 @@ public class MyUserDetails implements UserDetails {
 
     @Override
     public boolean isAccountNonExpired() {
-        // User account is always considered non-expired
         return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        // User account is always considered non-locked
         return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        // User credentials are always considered non-expired
         return true;
     }
 
     @Override
     public boolean isEnabled() {
-        // User account is always considered enabled
         return true;
     }
 }

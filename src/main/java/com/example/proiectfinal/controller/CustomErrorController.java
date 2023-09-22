@@ -46,11 +46,8 @@ public class CustomErrorController implements ErrorController {
     private HttpStatus getStatus(WebRequest webRequest) {
         Integer statusCode = (Integer) webRequest.getAttribute("javax.servlet.error.status_code", WebRequest.SCOPE_REQUEST);
         if (statusCode != null) {
-            try {
                 return HttpStatus.valueOf(statusCode);
-            } catch (Exception ex) {
-                // Handle invalid status code
-            }
+
         }
         return HttpStatus.INTERNAL_SERVER_ERROR;
     }
