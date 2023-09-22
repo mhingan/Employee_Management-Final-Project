@@ -33,19 +33,16 @@ public class UserController {
         this.dayOffRequestService = dayOffRequestService;
     }
 
-    //return the company info page - available for all users
     @GetMapping("/company")
     public String getCompanyInfoPage() {
         return "company";
     }
 
-    //index page, available for all logout users
     @GetMapping("/")
     public String getHomePage() {
         return "index";
     }
 
-    //returning all employees with role=USER
     @GetMapping("/employees")
     public String getAllUsers(Model model) {
         List<User> employees = userService.findAll();
@@ -54,7 +51,6 @@ public class UserController {
     }
 
 
-    //getting a single employee with info about it
     @GetMapping("/employees/{id}")
     public String getSingleEmployee(@PathVariable("id") int id, Model model) {
         User user = userService.findById(id);
@@ -63,7 +59,6 @@ public class UserController {
     }
 
 
-    //home page for the logged in role=USER
     @GetMapping("/dashboard")
     public String getDashboard(Model model) {
         User user = userService.findCurrentUser();
@@ -72,7 +67,6 @@ public class UserController {
     }
 
 
-    //user profile based on the auth user
     @GetMapping("/my_profile")
     public String getProfile(Model model) {
         User user = userService.findCurrentUser();
@@ -81,7 +75,6 @@ public class UserController {
     }
 
 
-    //getting the update info page
     @GetMapping("/my_profile/update_info")
     public String getProfileToEdit(Model model) {
         User user = userService.findCurrentUser();
@@ -90,7 +83,6 @@ public class UserController {
     }
 
 
-    //send the update request
     @RequestMapping(value = "/my_profile/update_info", method = RequestMethod.POST)
     @ResponseStatus(HttpStatus.OK)
     public String updateUser(@ModelAttribute User user) {
@@ -112,7 +104,6 @@ public class UserController {
         return "user/profile/update-information";
     }
 
-    //getting the day off page
     @GetMapping("/my_profile/request_days_off")
     public String getDayOffPage(Model model) {
         User user = userService.findCurrentUser();
@@ -124,7 +115,6 @@ public class UserController {
     }
 
 
-    //request a day off post
     @RequestMapping(value = "/my_profile/request_days_off", method = RequestMethod.POST)
     public String getDayOff(@RequestParam("startDate") LocalDate startDate, @RequestParam("endDate") LocalDate endDate, Model model) {
 
@@ -140,7 +130,6 @@ public class UserController {
 
 
 
-    //getting a single request
     @GetMapping("/my_profile/request_days_off/{id}")
     public String getDeleteRequest(@PathVariable("id") int id, Model model) {
         DayOffRequest dayOffRequest = dayOffRequestService.getById(id);
@@ -148,7 +137,6 @@ public class UserController {
         return "user/profile/cancel-holiday";
     }
 
-    //delete a request
     @RequestMapping(value = "/my_profile/request_days_off/{id}", method = RequestMethod.POST)
     public String deleteRequest(@PathVariable("id") int id, Model model) {
         User user = userService.findCurrentUser();
@@ -158,7 +146,6 @@ public class UserController {
         return "redirect:/dashboard";
     }
 
-    //search a user by last_name
     @GetMapping("/search-by-last_name")
     public String searchByLastName(@RequestParam("last_name") String last_name, Model model) {
         List<User> employees = userService.findByLastName(last_name);
@@ -167,7 +154,6 @@ public class UserController {
     }
 
 
-    //getting the change password page
     @GetMapping("/my_profile/change_password/{userId}")
     public String getChg(@PathVariable int userId, Model model){
         User user = userService.findById(userId);
@@ -176,7 +162,6 @@ public class UserController {
 
     }
 
-    //sending the change password request
     @RequestMapping(value = "/my_profile/change_password/{userId}", method = RequestMethod.POST)
     public String changePassword(@PathVariable int userId, @RequestParam String password) {
         userService.changePassword(userId, password);

@@ -57,7 +57,6 @@ public class ExportController {
         try {
             FileWriter fileWriter = new FileWriter(csvFileName);
 
-            // Configure CSVWriter with custom settings
             CSVWriter csvWriter = new CSVWriter(fileWriter,
                     CSVWriter.DEFAULT_SEPARATOR,
                     CSVWriter.NO_QUOTE_CHARACTER,

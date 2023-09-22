@@ -180,6 +180,8 @@ public class UserService {
      * @param password The new password.
      * @throws CustomValidationException if the user is not found with the given ID.
      */
+    //todo: put a break to check if is empty string
+    //todo: setter on setPassword
     public void changePassword(int userId, String password) {
         User user = userRepository.findById(userId).orElse(null);
 

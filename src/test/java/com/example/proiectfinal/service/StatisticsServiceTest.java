@@ -37,7 +37,6 @@ class StatisticsServiceTest {
 
     @Test
     public void testGetAllMaleEmployees() {
-        // Arrange
         List<User> userList = new ArrayList<>();
         userList.add(createUser("Male", "Full-Time"));
         userList.add(createUser("Female","Part-Time"));
@@ -45,10 +44,8 @@ class StatisticsServiceTest {
 
         when(userRepository.findAll()).thenReturn(userList);
 
-        // Act
         int result = statisticsService.getAllMaleEmployees();
 
-        // Assert
         assertEquals(2, result); // Expecting 2 male employees
         System.out.println("Test: Find all male employees: OK");
     }
@@ -57,7 +54,6 @@ class StatisticsServiceTest {
 
     @Test
     void getAllFemaleEmployees() {
-        // Arrange
         List<User> userList = new ArrayList<>();
         userList.add(createUser("Male", "Full-Time"));
         userList.add(createUser("Female","Part-Time"));
@@ -65,17 +61,14 @@ class StatisticsServiceTest {
 
         when(userRepository.findAll()).thenReturn(userList);
 
-        // Act
         int result = statisticsService.getAllFemaleEmployees();
 
-        // Assert
         assertEquals(1, result); // Expecting 1 female employee
         System.out.println("Test: Find all female employees: OK");
     }
 
     @Test
     void getAllFullTime() {
-        // Arrange
         List<User> userList = new ArrayList<>();
         userList.add(createUser("Male", "Full-Time"));
         userList.add(createUser("Female","Part-Time"));
@@ -83,17 +76,14 @@ class StatisticsServiceTest {
 
         when(userRepository.findAll()).thenReturn(userList);
 
-        // Act
         int result = statisticsService.getAllFullTime();
 
-        // Assert
         assertEquals(2, result); // Expecting 2 full-time contract employees
         System.out.println("Test: Find all Full-Time contract employees: OK");
     }
 
     @Test
     void getAllPartTime() {
-        // Arrange
         List<User> userList = new ArrayList<>();
         userList.add(createUser("Male", "Full-Time"));
         userList.add(createUser("Female","Part-Time"));
@@ -101,17 +91,14 @@ class StatisticsServiceTest {
 
         when(userRepository.findAll()).thenReturn(userList);
 
-        // Act
         int result = statisticsService.getAllPartTime();
 
-        // Assert
         assertEquals(1, result); // Expecting 1 part-time contract employees
         System.out.println("Test: Find all Part-Time contract employees: OK");
     }
 
     @Test
     void getAllInternships() {
-        // Arrange
         List<User> userList = new ArrayList<>();
         userList.add(createUser("Male", "Internship"));
         userList.add(createUser("Female","Internship"));
@@ -119,10 +106,8 @@ class StatisticsServiceTest {
 
         when(userRepository.findAll()).thenReturn(userList);
 
-        // Act
         int result = statisticsService.getAllInternships();
 
-        // Assert
         assertEquals(2, result); // Expecting 1 internship contract employees
         System.out.println("Test: Find all Internship contract employees: OK");
     }
@@ -136,7 +121,6 @@ class StatisticsServiceTest {
 
     @Test
     void getAllManagement() {
-        // Arrange
         List<User> userList = new ArrayList<>();
         userList.add(createUserForDepartmentTest("Management"));
         userList.add(createUserForDepartmentTest("IT"));
@@ -145,17 +129,14 @@ class StatisticsServiceTest {
 
         when(userRepository.findAll()).thenReturn(userList);
 
-        // Act
         int result = statisticsService.getAllManagement();
 
-        // Assert
         assertEquals(1, result); // Expecting 1 MANAGEMENT employee
         System.out.println("Test: Find all employees from Management department: OK");
     }
 
     @Test
     void getAllIT() {
-        // Arrange
         List<User> userList = new ArrayList<>();
         userList.add(createUserForDepartmentTest("Management"));
         userList.add(createUserForDepartmentTest("IT"));
@@ -164,17 +145,14 @@ class StatisticsServiceTest {
 
         when(userRepository.findAll()).thenReturn(userList);
 
-        // Act
         int result = statisticsService.getAllIT();
 
-        // Assert
         assertEquals(1, result); // Expecting 1 IT employee
         System.out.println("Test: Find all employees from IT department: OK");
     }
 
     @Test
     void getAllDevelopment() {
-        // Arrange
         List<User> userList = new ArrayList<>();
         userList.add(createUserForDepartmentTest("Development"));
         userList.add(createUserForDepartmentTest("IT"));
@@ -183,17 +161,14 @@ class StatisticsServiceTest {
 
         when(userRepository.findAll()).thenReturn(userList);
 
-        // Act
         int result = statisticsService.getAllDevelopment();
 
-        // Assert
         assertEquals(2, result); // Expecting 2 DEVELOPMENT employees
         System.out.println("Test: Find all employees from Development department: OK");
     }
 
     @Test
     void getAllFinance() {
-        // Arrange
         List<User> userList = new ArrayList<>();
         userList.add(createUserForDepartmentTest("Finance"));
         userList.add(createUserForDepartmentTest("IT"));
@@ -202,17 +177,14 @@ class StatisticsServiceTest {
 
         when(userRepository.findAll()).thenReturn(userList);
 
-        // Act
         int result = statisticsService.getAllFinance();
 
-        // Assert
         assertEquals(1, result); // Expecting 1 FINANCE employees
         System.out.println("Test: Find all employees from Finance department: OK");
     }
 
     @Test
     void getAllMarketing() {
-        // Arrange
         List<User> userList = new ArrayList<>();
         userList.add(createUserForDepartmentTest("Marketing"));
         userList.add(createUserForDepartmentTest("IT"));
@@ -221,10 +193,8 @@ class StatisticsServiceTest {
 
         when(userRepository.findAll()).thenReturn(userList);
 
-        // Act
         int result = statisticsService.getAllMarketing();
 
-        // Assert
         assertEquals(1, result); // Expecting 1 MARKETING employees
         System.out.println("Test: Find all employees from Marketing department: OK");
     }
@@ -240,11 +210,10 @@ class StatisticsServiceTest {
 
         when(userRepository.findAll()).thenReturn(userList);
 
-        // Act
+
         int result = statisticsService.getAllHR();
 
-        // Assert
-        assertEquals(2, result); // Expecting 2 HR employees
+        assertEquals(2, result);
         System.out.println("Test: Find all employees from HR department: OK");
     }
 }

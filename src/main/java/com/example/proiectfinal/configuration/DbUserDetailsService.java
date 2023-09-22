@@ -24,7 +24,6 @@ public class DbUserDetailsService implements UserDetailsService {
 
     /**
      * Load user details by username (email) from the database.
-     *
      * @param username The username (email) of the user to load.
      * @return UserDetails object representing the user.
      * @throws UsernameNotFoundException If the user is not found in the database.

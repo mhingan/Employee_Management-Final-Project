@@ -33,17 +33,12 @@ public class UserRequestServiceTest {
 
     @Test
     void findAll() {
-        //Test: Find all accounts requests
-        //Arrange
-        //creez o noua lista
+
         List<UserRequest> requestList = new ArrayList<>();
-        //cand gaseste toate req acc, mi le returneaza in lista de mai sus
         when(userRequestRepository.findAll()).thenReturn(requestList);
 
-        //creez o lista in acre se aflat toate rezultatele
         List<UserRequest> result = userRequestRepository.findAll();
 
-        //Assert
         assertEquals(requestList, result);
         System.out.println("Test: Find all accounts creation requests: OK");
 
@@ -51,22 +46,20 @@ public class UserRequestServiceTest {
 
     @Test
     void findAllCompleted(){
-            // Test: Finding all completed user requests
-            // Arrange
+
             List<UserRequest> allRequests = new ArrayList<>();
             UserRequest request1 = new UserRequest();
             request1.setCompleted(true);
             allRequests.add(request1);
             UserRequest request2 = new UserRequest();
-            request2.setCompleted(false); // Not completed
+            request2.setCompleted(false);
             allRequests.add(request2);
             when(userRequestRepository.findAll()).thenReturn(allRequests);
 
-            // Act
+
             List<UserRequest> result = userRequestService.findAllCompleted();
 
-            // Assert
-            assertEquals(1, result.size()); // Only one completed request
+            assertEquals(1, result.size());
             assertEquals(request1, result.get(0));
             System.out.println("Test: Find all completed user requests: OK");
 
@@ -75,16 +68,14 @@ public class UserRequestServiceTest {
 
     @Test
     void deleteUserRequest() {
-        //Test: delete account request
-        //Arrange
-        //creez  var requestid, care e id ul requestului
+
         int reqId = 1;
-        //creez un nou obiect de tip UserRequest
+
         UserRequest userRequest = new UserRequest();
         when(userRequestRepository.findById(reqId)).thenReturn(Optional.of(userRequest));
 
         userRequestRepository.delete(userRequest);
-        //verifc ca repo a sters user request
+
         verify(userRequestRepository, times(1)).delete(userRequest);
         System.out.println("Test: Delete account request: OK");
     }
@@ -93,19 +84,18 @@ public class UserRequestServiceTest {
 
     @Test
     public void testSetRequestAsCompleted() {
-        // Test: Setting a request as completed
-        // Arrange
+
         UserRequest userRequest = new UserRequest();
-        userRequest.setCompleted(false); // Not completed initially
+        userRequest.setCompleted(false);
 
         when(userRequestRepository.save(userRequest)).thenReturn(userRequest);
 
-        // Act
+
         List<UserRequest> completedList = userRequestService.setRequestAsCompleted(userRequest);
 
-        // Assert
-        assertTrue(userRequest.isCompleted()); // Request should be marked as completed
-        assertEquals(1, completedList.size()); // The completed request should be in the list
+
+        assertTrue(userRequest.isCompleted());
+        assertEquals(1, completedList.size());
         assertEquals(userRequest, completedList.get(0));
         System.out.println("Test: Set request as completed: OK");
     }
