@@ -4,24 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request Account Success</title>
-    <!-- Link to Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        /* Custom CSS for the animation */
         .checkmark-animation {
             display: inline-block;
             opacity: 0;
-            font-size: 80px; /* Larger checkmark */
-            color: #28a745; /* Green color for the checkmark */
+            font-size: 80px;
+            color: #28a745;
             transform-origin: left center;
-            transform: scale(0); /* Start with a small checkmark */
+            transform: scale(0);
             transition: transform 0.5s ease, opacity 0.5s ease;
         }
 
-        /* Trigger the animation on a class change */
         .checkmark-animation.active {
             opacity: 1;
-            transform: scale(1); /* Grow the checkmark to full size */
+            transform: scale(1);
         }
     </style>
 </head>
@@ -29,24 +26,19 @@
 <div class="container-fluid h-100">
     <div class="row h-100 justify-content-center align-items-center">
         <div class="col-md-6 text-center">
-            <!-- Checkmark symbol -->
             <div class="checkmark-animation mx-auto" id="checkmark">&#10003;</div>
 
-            <!-- Success message -->
             <h2 class="mt-3">Request Account: Success</h2>
 
-            <!-- Back button -->
             <a href="/" class="btn btn-primary mt-3">Home</a>
         </div>
     </div>
 </div>
 
-<!-- Link to Bootstrap JS and jQuery (for animation) -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 <script>
-    // Trigger the animation when the page loads
     $(document).ready(function () {
         setTimeout(function () {
             $("#checkmark").addClass("active");
