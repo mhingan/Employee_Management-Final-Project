@@ -10,10 +10,8 @@ package com.example.proiectfinal.service;
 import com.example.proiectfinal.exception.CustomValidationException;
 import com.example.proiectfinal.model.DayOffRequest;
 import com.example.proiectfinal.model.User;
-import com.example.proiectfinal.model.UserRequest;
 import com.example.proiectfinal.repository.DayOffRequestRepository;
 import com.example.proiectfinal.repository.UserRepository;
-import com.example.proiectfinal.repository.UserRequestRepository;
 import com.example.proiectfinal.utils.UserValidation;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -21,7 +19,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCrypt;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -75,19 +72,6 @@ public class UserService {
      */
     public void update(User user) {
         userRepository.save(user);
-    }
-
-    /**
-     * Retrieves a list of users in a specific department.
-     *
-     * @param selectedDepartment The department to filter by.
-     * @return List of users in the specified department.
-     */
-    public List<User> findByDepartment(String selectedDepartment) {
-        return userRepository.findAll()
-                .stream()
-                .filter(user -> selectedDepartment.equals(user.getDepartment()))
-                .collect(Collectors.toList());
     }
 
     /**

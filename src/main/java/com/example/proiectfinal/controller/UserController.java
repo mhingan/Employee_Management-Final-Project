@@ -14,8 +14,6 @@ import com.example.proiectfinal.service.DayOffRequestService;
 import com.example.proiectfinal.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -28,13 +26,11 @@ import java.util.List;
 public class UserController {
     private final UserService userService;
     private final DayOffRequestService dayOffRequestService;
-    private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UserController(UserService userService, DayOffRequestService dayOffRequestService, PasswordEncoder passwordEncoder) {
+    public UserController(UserService userService, DayOffRequestService dayOffRequestService) {
         this.userService = userService;
         this.dayOffRequestService = dayOffRequestService;
-        this.passwordEncoder = passwordEncoder;
     }
 
     //return the company info page - available for all users

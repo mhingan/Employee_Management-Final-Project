@@ -1,7 +1,6 @@
 /**
  * @author Mihaita Hingan
  * SecurityConfig - Configuration class for Spring Security.
- *
  * This class defines the security configuration for the application, including security filter chains, authorization
  * rules, and password encoding.
  */

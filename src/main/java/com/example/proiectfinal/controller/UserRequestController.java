@@ -10,7 +10,6 @@ package com.example.proiectfinal.controller;
 import com.example.proiectfinal.model.UserRequest;
 import com.example.proiectfinal.service.UserRequestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

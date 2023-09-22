@@ -5,13 +5,11 @@ import com.example.proiectfinal.model.DayOffRequest;
 import com.example.proiectfinal.model.User;
 import com.example.proiectfinal.repository.DayOffRequestRepository;
 import com.example.proiectfinal.repository.UserRepository;
-import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Optional;
     /**
      * Service class for managing day off requests.
      * This service provides methods for handling day off requests, including listing all requests,
