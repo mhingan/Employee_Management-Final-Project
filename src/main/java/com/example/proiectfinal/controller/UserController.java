@@ -46,7 +46,6 @@ public class UserController {
     //index page, available for all logout users
     @GetMapping("/")
     public String getHomePage() {
-        //todo - implement thymeleaf
         return "index";
     }
 
@@ -180,7 +179,7 @@ public class UserController {
         return "user/profile/change-password";
 
     }
-    //TODO - CHANGE PASSWORD
+
     //sending the change password request
     @RequestMapping(value = "/my_profile/change_password/{userId}", method = RequestMethod.POST)
     public String changePassword(@PathVariable int userId, @RequestParam String password) {
