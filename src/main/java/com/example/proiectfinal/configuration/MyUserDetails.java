@@ -1,7 +1,6 @@
 /**
  * @author Mihaita Hingan
  * MyUserDetails - Custom user details implementation for Spring Security.
- *
  * This class implements the Spring Security `UserDetails` interface to provide custom user details for authentication
  * and authorization.
  */
