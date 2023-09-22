@@ -32,16 +32,17 @@ import java.util.stream.Collectors;
 public class UserService {
 
     private static final Logger logger = LoggerFactory.getLogger(UserService.class);
-    private UserValidation userValidation;
+    private final UserValidation userValidation;
     private final UserRepository userRepository;
 
     private final DayOffRequestRepository dayOffRequestRepository;
 
 
     @Autowired
-    public UserService(UserRepository userRepository, DayOffRequestRepository dayOffRequestRepository) {
+    public UserService(UserRepository userRepository, DayOffRequestRepository dayOffRequestRepository, UserValidation userValidation) {
         this.userRepository = userRepository;
         this.dayOffRequestRepository = dayOffRequestRepository;
+        this.userValidation = userValidation;
     }
 
     /**

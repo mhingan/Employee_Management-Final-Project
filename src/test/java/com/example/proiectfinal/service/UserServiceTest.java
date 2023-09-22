@@ -4,6 +4,7 @@ import com.example.proiectfinal.exception.CustomValidationException;
 import com.example.proiectfinal.model.User;
 import com.example.proiectfinal.repository.DayOffRequestRepository;
 import com.example.proiectfinal.repository.UserRepository;
+import com.example.proiectfinal.utils.UserValidation;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mock;
@@ -33,12 +34,15 @@ public class UserServiceTest {
     private DayOffRequestRepository dayOffRequestRepository;
 
     @Mock
+    private UserValidation userValidation;
+
+    @Mock
     private Authentication authentication;
 
     @BeforeEach
     public void setUp() {
         MockitoAnnotations.openMocks(this);
-        userService = new UserService(userRepository, dayOffRequestRepository);
+        userService = new UserService(userRepository, dayOffRequestRepository, userValidation);
     }
 
     @Test
