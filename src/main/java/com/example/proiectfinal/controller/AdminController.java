@@ -169,7 +169,6 @@ public class AdminController {
 
     @RequestMapping(value = "/employees/edit/{id}", method = RequestMethod.POST)
     @PreAuthorize("hasAnyAuthority('ADMIN')")
-    @ResponseStatus(HttpStatus.OK)
     public String updateUser(@PathVariable("id") int id,
                              @ModelAttribute User user) {
         // Retrieve the existing user with the given ID from userService
@@ -196,7 +195,7 @@ public class AdminController {
         userService.update(existingUser);
 
         // Redirect to the user editing page
-        return "redirect:/admin/employees/edit/{id}";
+        return "redirect:http://localhost:8080/admin/employees";
     }
 
     //todo
